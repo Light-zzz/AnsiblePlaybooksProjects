@@ -1,0 +1,9 @@
+# sudo vim /etc/ansible/hosts
+[slaveVM1]
+<public-IP> ansible_user=<username> #eg. ec2-user, ubuntu, root
+
+[slaveVM2]
+<public-IP> ansible_user=<username> #eg. ec2-user, ubuntu, root
+
+[slaveVM3]
+<public-IP> ansible_user=<username> #eg. ec2-user, ubuntu, root
