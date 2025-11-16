@@ -1,0 +1,11 @@
+#:user_vars.yml
+users_to_create:
+  - name: "Dipesh"
+    group: "devops"
+    shell: "/bin/bash"
+  - name: "Suraj"
+    group: "developers"
+    shell: "/bin/sh"
+  - name: "Suraj123"
+    group: "developers"
+    shell: "/bin/sh"
