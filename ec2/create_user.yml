@@ -1,0 +1,24 @@
+---
+- name: Create users on slave VMs
+  hosts: slave1
+  become: true # This allows privilege escalation (e.g., to root) to create users
+  vars_files:
+    - user_vars.yml # Links to the variables file
+
+  tasks:
+    - name: Create necessary groups
+      ansible.builtin.group:
+        name: "{{ item.group }}"
+        state: present
+      loop: "{{ users_to_create }}"
+      # Only create groups once per group name
+      run_once: true
+
+    - name: Create users with specified properties
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        group: "{{ item.group }}"
+        shell: "{{ item.shell }}"
+        state: present
+        create_home: true # Ensure a home directory is created
+      loop: "{{ users_to_create }}"
